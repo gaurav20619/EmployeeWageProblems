@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class EmployeeWage {
+public class EmployeeWage implements InEmployeeWage {
     // instance variables
     int noOfCompanies, index;
     CompanyEmpWage[] companies; //declaring array
@@ -12,7 +12,7 @@ public class EmployeeWage {
         index = 0;
     }
     //Assigning to the array
-    void addCompany(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs) {
+    public void addCompany(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs) {
         companies[index++] = new CompanyEmpWage(companyName, wagePerHr, maxWorkingDays, maxWorkingHrs);
     }
     //Computation of company wage
@@ -43,7 +43,7 @@ public class EmployeeWage {
                 return 0; //Absent
         }
     }
-    void companyWage() {
+    public void companyWage() {
         for (CompanyEmpWage company : companies) //for-each loop
         {
             int totalWage = companyWage(company);
@@ -55,9 +55,9 @@ public class EmployeeWage {
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage Computation. \n");
 		EmployeeWage emp = new EmployeeWage(3); //creating an object and declaring number of companies = 3
-        emp.addCompany("IBM", 20, 20, 100);
-        emp.addCompany("Infosys", 34, 23, 130);
-        emp.addCompany("Accenture", 10, 15, 99);
+        emp.addCompany("Bridgeabz", 20, 20, 100);
+        emp.addCompany("TATA", 34, 23, 130);
+        emp.addCompany("BAJAJ", 10, 15, 99);
         emp.companyWage();
 	}
 }
